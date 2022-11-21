@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import highchartsMap from "highcharts/modules/map";
@@ -11,11 +11,7 @@ if (typeof window !== "undefined") {
     window.proj4 = window.proj4 || proj4;
 }
 
-export default function MapBox(props) {
-
-    const mapProperties = useRef(MapBox);
-
-    console.log(mapProperties.current);
+export default function MapBox() {
 
     const data = [
         ['Beijing', 'China', '2008', 39.92, 116.38, 9, 3, 5, 1],
@@ -46,7 +42,7 @@ export default function MapBox(props) {
         },
 
         title: {
-            text: props.title || "Custom HighCharts"
+            text: "Custom HighCharts"
         },
 
         tooltip: {
@@ -83,7 +79,6 @@ export default function MapBox(props) {
         <>
             <Container fluid className='m-3'>
                 <HighchartsReact
-                    ref={mapProperties}
                     constructorType={'mapChart'}
                     highcharts={Highcharts}
                     options={mapOptions}

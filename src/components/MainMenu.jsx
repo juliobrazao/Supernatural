@@ -1,15 +1,8 @@
-import React, { useState } from 'react';
-import { Container, Navbar, Button } from 'react-bootstrap';
+import React from 'react';
+import { Container, Navbar } from 'react-bootstrap';
 import InfoModal from './InfoModal';
 
-export default function MainMenu(props){
-
-    const [modalShow, setModalShow] = useState(false);
-
-    const showModal = () => {
-        setModalShow(true);
-    }
-
+export default function MainMenu() {
     return (
         <>
             <Navbar bg='light' expand='sm'>
@@ -21,13 +14,10 @@ export default function MainMenu(props){
                     </Navbar.Brand>
 
                     <Navbar.Text>
-                        <Button variant='success' onClick={showModal}>Invoke Modal</Button>
+                        <InfoModal />
                     </Navbar.Text>
                 </Container>
             </Navbar>
-
-
-            <InfoModal extShow={modalShow} />
         </>
     );
 }
